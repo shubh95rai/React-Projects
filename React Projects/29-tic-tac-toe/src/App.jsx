@@ -58,10 +58,10 @@ function App() {
   return (
     <main className="flex flex-col gap-2">
       <section className="flex justify-between items-center">
-        <h1 className="font-medium text-2xl">{statusMessage()}</h1>
+        <h1 className="font-semibold text-2xl">{statusMessage()}</h1>
         <button
           type="button"
-          className="uppercase bg-slate-300 py-2.5 px-5 rounded tracking-widest font-medium hover:bg-opacity-70 transition-all"
+          className="uppercase bg-slate-300 py-2.5 px-5 rounded tracking-widest font-semibold hover:bg-opacity-70 transition-all"
           onClick={reset}>
           reset
         </button>
@@ -71,11 +71,11 @@ function App() {
           return (
             <button
               key={index}
-              className="w-32 h-32 bg-slate-300 flex justify-center items-center rounded text-4xl cursor-pointer hover:bg-opacity-70 transition-all disabled:pointer-events-none"
+              className="w-28 h-28 sm:w-32 sm:h-32 bg-slate-300 flex justify-center items-center rounded text-4xl cursor-pointer hover:bg-opacity-70 transition-all disabled:pointer-events-none"
               onClick={() => {
                 handleClick(index);
               }}
-              disabled={cell !== null}>
+              disabled={cell !== null || calculateWinner(board) ? true : false}>
               {cell}
             </button>
           );
